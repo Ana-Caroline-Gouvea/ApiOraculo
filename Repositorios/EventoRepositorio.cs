@@ -40,7 +40,7 @@ namespace Api.Repositorios
             }
             else
             {
-                eventos.EventoNome = eventos.EventoNome;
+                eventos.EventoTexto = eventos.EventoTexto;
                 eventos.EventoFoto = eventos.EventoFoto;
                 _dbContext.Evento.Update(eventos);
                 await _dbContext.SaveChangesAsync();

@@ -9,10 +9,12 @@ namespace Api.Data
         public void Configure(EntityTypeBuilder<PostagemModel> builder)
         {
             builder.HasKey(x => x.PostagemId);
-            builder.Property(x => x.UsuarioId).IsRequired().HasMaxLength(255);
-            builder.Property(x => x.PostagemData).IsRequired().HasMaxLength(255);
-            builder.Property(x => x.PostagemLike).IsRequired().HasMaxLength(255);
-            builder.Property(x => x.PostagemCompartilhamento).IsRequired().HasMaxLength(255);
+            builder.Property(x => x.PostagemNome).IsRequired().HasMaxLength(255);
+            builder.Property(x => x.PostagemImg).IsRequired().HasMaxLength(255);
+            builder.Property(x => x.CategoriaId).IsRequired().HasMaxLength(255);
+            builder.Property(x => x.ComunidadesId).IsRequired().HasMaxLength(255);
+            builder.Property(x => x.Like).IsRequired().HasMaxLength(255);
+            builder.Property(x => x.Compartilhamento).IsRequired().HasMaxLength(255);
         }
     
     }

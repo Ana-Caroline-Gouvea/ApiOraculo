@@ -39,7 +39,7 @@ namespace Api.Repositorios
             }
             else
             {
-                comunidades.ComunidadesNome = comunidades.ComunidadesNome;
+                comunidades.NomeComunidade = comunidade.NomeComunidade;
                 _dbContext.Comunidades.Update(comunidades);
                 await _dbContext.SaveChangesAsync();
             }

@@ -9,7 +9,7 @@ namespace Api.Data
         public void Configure(EntityTypeBuilder<ComunidadesModel> builder)
         {
             builder.HasKey(x => x.ComunidadesId);
-            builder.Property(x => x.ComunidadesNome).IsRequired().HasMaxLength(255);
+            builder.Property(x => x.NomeComunidade).IsRequired().HasMaxLength(255);
 
         }
 

@@ -23,8 +23,6 @@ builder.Services.AddScoped<IEventoRepositorio, EventoRepositorio>();
 builder.Services.AddScoped<IMaisComentadosRepositorio, MaisComentadosRepositorio>();
 builder.Services.AddScoped<IPostagemRepositorio, PostagemRepositorio>();
 
-
-
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(

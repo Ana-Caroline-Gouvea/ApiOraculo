@@ -10,9 +10,7 @@
 
         public string UsuarioApelido { get; set; } = string.Empty;
 
-        public DateTime UsuarioNascimento { get; set; }
-
-        public string UsuarioFoto { get; set; } = string.Empty;
+        public DateTime UsuarioDataNascimento { get; set; }
 
         public string UsuarioSenha { get; set; } = string.Empty;
 

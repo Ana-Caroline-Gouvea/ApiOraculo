@@ -18,10 +18,14 @@ namespace Api.Data
         public DbSet<ComunidadesModel> Comunidades { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
+        {      
+            modelBuilder.ApplyConfiguration(new ComunidadesMap());
+            modelBuilder.ApplyConfiguration(new EventoMap());
+            modelBuilder.ApplyConfiguration(new MaisComentadosMap());
+            modelBuilder.ApplyConfiguration(new NovidadeMap());
+            modelBuilder.ApplyConfiguration(new PostagemMap());
             modelBuilder.ApplyConfiguration(new UsuarioMap());
             base.OnModelCreating(modelBuilder);
         }
-
     }
 }

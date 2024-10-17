@@ -44,8 +44,7 @@ namespace Api.Repositorios
                 usuarios.UsuarioNome = usuario.UsuarioNome;
                 usuarios.UsuarioEmail = usuario.UsuarioEmail;
                 usuarios.UsuarioApelido = usuario.UsuarioApelido;
-                usuarios.UsuarioNascimento = usuario.UsuarioNascimento;
-                usuarios.UsuarioFoto = usuario.UsuarioFoto;
+                usuarios.UsuarioDataNascimento = usuario.UsuarioDataNascimento;           
                 usuarios.UsuarioSenha = usuario.UsuarioSenha;
                 usuarios.UsuarioConfirmarSenha = usuario.UsuarioConfirmarSenha;
                 _dbContext.Usuario.Update(usuarios);

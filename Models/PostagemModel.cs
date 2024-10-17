@@ -4,13 +4,12 @@
 
     {
         public int PostagemId { get; set; }
-
-        public int UsuarioId { get; set; }
-
-        public DateTime PostagemData { get; set; }
-
-        public int PostagemLike { get; set; }
-        public int PostagemCompartilhamento { get; set; }
+        public string PostagemNome { get; set; } = string.Empty;
+        public string PostagemImg { get; set; } = string.Empty;
+        public int ComunidadesId { get; set; }
+        public int CategoriaId { get; set; }
+        public int Like { get; set; }
+        public int Compartilhamento { get; set; }
 
 
         public static implicit operator List<object>(PostagemModel v)

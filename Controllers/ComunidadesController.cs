@@ -20,6 +20,7 @@ namespace Api.Controllers
         public async Task<ActionResult<List<ComunidadesModel>>> GetAllComunidades()
         {
             List<ComunidadesModel> comunidades = await _comunidadesRepositorio.GetAll();
+            var teste = comunidades.ToList();
             return Ok(comunidades);
         }
 

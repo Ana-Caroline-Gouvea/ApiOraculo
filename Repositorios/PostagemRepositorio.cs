@@ -41,10 +41,12 @@ namespace Api.Repositorios
             }
             else
             {
-                postagens.UsuarioId = postagem.UsuarioId;
-                postagens.PostagemData = postagem.PostagemData;
-                postagens.PostagemLike = postagem.PostagemLike;
-                postagens.PostagemCompartilhamento = postagem.PostagemCompartilhamento;
+                postagens.PostagemNome = postagem.PostagemNome;
+                postagens.PostagemImg = postagem.PostagemImg;
+                postagens.CategoriaId = postagem.CategoriaId;
+                postagens.ComunidadesId = postagem.ComunidadesId;
+                postagens.Like = postagem.Like;
+                postagens.Compartilhamento = postagem.Compartilhamento;
                 _dbContext.Postagem.Update(postagens);
                 await _dbContext.SaveChangesAsync();
             }
