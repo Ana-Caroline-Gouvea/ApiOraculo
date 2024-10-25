@@ -10,6 +10,7 @@ namespace Api.Data
         {
             builder.HasKey(x => x.UsuarioId);
             builder.Property(x => x.UsuarioNome).IsRequired().HasMaxLength(255);
+            builder.Property(x => x.UsuarioFoto).IsRequired().HasMaxLength(255);
             builder.Property(x => x.UsuarioEmail).IsRequired().HasMaxLength(255);
             builder.Property(x => x.UsuarioApelido).IsRequired().HasMaxLength(255);
             builder.Property(x => x.UsuarioDataNascimento).IsRequired().HasMaxLength(255);          

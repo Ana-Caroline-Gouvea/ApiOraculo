@@ -4,7 +4,9 @@ namespace Api.Repositorios.Interfaces
 {
     public interface IPostagemRepositorio
     {
-        Task<List<PostagemModel>> GetAll();
+        Task<List<PostagemCompleta>> GetAll();
+
+        Task<PostagemCompleta> GetPostId( int id );
 
         Task<PostagemModel> GetById(int id);
 

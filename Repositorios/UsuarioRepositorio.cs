@@ -42,6 +42,7 @@ namespace Api.Repositorios
             else
             {
                 usuarios.UsuarioNome = usuario.UsuarioNome;
+                usuarios.UsuarioFoto = usuario.UsuarioFoto;
                 usuarios.UsuarioEmail = usuario.UsuarioEmail;
                 usuarios.UsuarioApelido = usuario.UsuarioApelido;
                 usuarios.UsuarioDataNascimento = usuario.UsuarioDataNascimento;           
