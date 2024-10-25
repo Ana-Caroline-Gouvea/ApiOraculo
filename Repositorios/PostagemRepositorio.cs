@@ -15,6 +15,7 @@ namespace Api.Repositorios
             _dbContext = dbContext;
         }
 
+
         public async Task<List<PostagemCompleta>> GetAll()
         {
             var postagens = await _dbContext.Postagem
