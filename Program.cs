@@ -22,6 +22,7 @@ builder.Services.AddScoped<INovidadeRepositorio, NovidadeRepositorio>();
 builder.Services.AddScoped<IEventoRepositorio, EventoRepositorio>();
 builder.Services.AddScoped<IMaisComentadosRepositorio, MaisComentadosRepositorio>();
 builder.Services.AddScoped<IPostagemRepositorio, PostagemRepositorio>();
+builder.Services.AddScoped<IComunidadeUsuarioRepositorio, ComunidadeUsuarioRepositorio>();
 
 builder.Services.AddCors(options =>
 {

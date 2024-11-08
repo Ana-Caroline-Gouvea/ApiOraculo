@@ -11,6 +11,7 @@ namespace Api.Data
         }
 
         public DbSet<UsuarioModel> Usuario { get; set; }
+        public DbSet<ComunidadeUsuarioModel> ComunidadeUsuario { get; set; }
         public DbSet<PostagemModel> Postagem { get; set; }
         public DbSet<NovidadeModel> Novidade { get; set; }
         public DbSet<MaisComentadosModel> MaisComentados { get; set; }
@@ -25,6 +26,7 @@ namespace Api.Data
             modelBuilder.ApplyConfiguration(new NovidadeMap());
             modelBuilder.ApplyConfiguration(new PostagemMap());
             modelBuilder.ApplyConfiguration(new UsuarioMap());
+            modelBuilder.ApplyConfiguration(new ComunidadeUsuarioMap());
             base.OnModelCreating(modelBuilder);
         }
     }
