@@ -363,3 +363,5 @@ MigrationBackup/
 FodyWeavers.xsd
 /Models/UsuarioModel.cs
 /.gitignore
+/Properties/launchSettings.json
+/appsettings.json
