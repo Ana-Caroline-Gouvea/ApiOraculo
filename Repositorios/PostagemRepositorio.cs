@@ -14,10 +14,64 @@ namespace Api.Repositorios
         {
             _dbContext = dbContext;
         }
-
-        public async Task<List<PostagemModel>> GetAll()
+        public async Task<List<PostagemCompleta>> GetAll()
         {
-            return await _dbContext.Postagem.ToListAsync();
+            var postagens = await _dbContext.Postagem
+                .Join(
+                    _dbContext.Usuario,
+                    p => p.UsuarioId,
+                    u => u.UsuarioId,
+                    (p, u) => new PostagemCompleta
+                    {
+                        PostagemId = p.PostagemId,
+                        PostagemNome = p.PostagemNome,
+                        PostagemImg = p.PostagemImg,
+                        CategoriaId = p.CategoriaId,
+                        ComunidadesId = p.ComunidadesId,
+                        Like = p.Like,
+                        Compartilhamento = p.Compartilhamento,
+                        Usuario = new UsuarioDto
+                            {
+                                UsuarioId = u.UsuarioId,
+                                UsuarioNome = u.UsuarioNome,
+                                UsuarioEmail = u.UsuarioEmail,
+                                UsuarioFoto = u.UsuarioFoto,
+                                UsuarioApelido = u.UsuarioApelido,
+                            }
+                    })
+                .ToListAsync();
+
+            return postagens;
+        }
+
+        public async Task<PostagemCompleta> GetPostId(int id)
+        {
+            var postagem = await _dbContext.Postagem
+                .Join(
+                    _dbContext.Usuario,
+                    p => p.UsuarioId,
+                    u => u.UsuarioId,
+                    (p, u) => new PostagemCompleta
+                    {
+                        PostagemId = p.PostagemId,
+                        PostagemNome = p.PostagemNome,
+                        PostagemImg = p.PostagemImg,
+                        CategoriaId = p.CategoriaId,
+                        ComunidadesId = p.ComunidadesId,
+                        Like = p.Like,
+                        Compartilhamento = p.Compartilhamento,
+                        Usuario = new UsuarioDto
+                        {
+                            UsuarioId = u.UsuarioId,
+                            UsuarioNome = u.UsuarioNome,
+                            UsuarioEmail = u.UsuarioEmail,
+                            UsuarioFoto = u.UsuarioFoto,
+                            UsuarioApelido = u.UsuarioApelido,
+                        }
+                    })
+                .FirstOrDefaultAsync(x => x.PostagemId == id);
+
+            return postagem;
         }
 
         public async Task<PostagemModel> GetById(int id)
@@ -45,6 +99,7 @@ namespace Api.Repositorios
                 postagens.PostagemImg = postagem.PostagemImg;
                 postagens.CategoriaId = postagem.CategoriaId;
                 postagens.ComunidadesId = postagem.ComunidadesId;
+                postagens.UsuarioId = postagem.UsuarioId;
                 postagens.Like = postagem.Like;
                 postagens.Compartilhamento = postagem.Compartilhamento;
                 _dbContext.Postagem.Update(postagens);

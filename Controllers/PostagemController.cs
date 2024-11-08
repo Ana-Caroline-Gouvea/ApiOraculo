@@ -17,16 +17,16 @@ namespace Api.Controllers
         }
 
         [HttpGet("GetAllPostagem")]
-        public async Task<ActionResult<List<PostagemModel>>> GetAllPostagem()
+        public async Task<ActionResult<List<PostagemCompleta>>> GetAllPostagem()
         {
-            List<PostagemModel> postagem = await _postagemRepositorio.GetAll();
+            List<PostagemCompleta> postagem = await _postagemRepositorio.GetAll();
             return Ok(postagem);
         }
 
         [HttpGet("GetPostagemId/{id}")]
-        public async Task<ActionResult<PostagemModel>> GetPostagemId(int id)
+        public async Task<ActionResult<PostagemCompleta>> GetPostagemId(int id)
         {
-            PostagemModel postagem = await _postagemRepositorio.GetById(id);
+            PostagemCompleta postagem = await _postagemRepositorio.GetPostId(id);
             return Ok(postagem);
         }
 

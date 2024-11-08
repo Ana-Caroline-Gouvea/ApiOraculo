@@ -42,6 +42,7 @@ namespace Api.Repositorios
             else
             {
                 usuarios.UsuarioNome = usuario.UsuarioNome;
+                usuarios.UsuarioFoto = usuario.UsuarioFoto;
                 usuarios.UsuarioEmail = usuario.UsuarioEmail;
                 usuarios.UsuarioApelido = usuario.UsuarioApelido;
                 usuarios.UsuarioDataNascimento = usuario.UsuarioDataNascimento;           
@@ -65,6 +66,14 @@ namespace Api.Repositorios
             _dbContext.Usuario.Remove(usuarios);
             await _dbContext.SaveChangesAsync();
             return true;
+        }
+
+        public async Task<UsuarioModel> LoginUsuario(string email, string senha)
+        {
+            UsuarioModel user = await _dbContext.Usuario.FirstOrDefaultAsync(x => x.UsuarioEmail == email && x.UsuarioSenha == senha);
+            return user;
+           
+
         }
     }
 
