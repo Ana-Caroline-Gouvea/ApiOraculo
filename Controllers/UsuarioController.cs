@@ -2,7 +2,7 @@
 using Api.Repositorios.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-
+using System.ComponentModel.DataAnnotations;
 
 namespace Api.Controllers
 {
@@ -51,6 +51,19 @@ namespace Api.Controllers
         {
             bool deleted = await _usuarioRepositorio.DeleteUsuario(id);
             return Ok(deleted);
+        }
+
+        [HttpPost("LoginUsuario")]
+        public async Task<ActionResult<UsuarioModel>> LoginUsuario([FromBody] UsuarioModel usuarioModel)
+        {
+            var Email = usuarioModel.UsuarioEmail;
+            var Senha = usuarioModel.UsuarioSenha;
+            UsuarioModel usuario = await _usuarioRepositorio.LoginUsuario(Email,Senha);
+            if(usuario == null)
+            {
+                throw new Exception("Usuario não encontrado.");
+            }
+            else return Ok(usuario);
         }
     }
 }
